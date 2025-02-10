@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/HelloWorld', function () {
+
+Route::get('/hello', function () {
     return 'Hello Laravel';
-});
+}) -> name('greeting');
+
+Route::get('/show-greeting',[WelcomeController::class, 'showGreeting']);
+Route::get('/redirect-greeting',[WelcomeController::class, 'redirectGreeting']);
 
 Route::get('/user/{name?}', function ($name = null) {
     if ($name) {
