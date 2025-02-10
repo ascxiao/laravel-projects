@@ -18,5 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('/HelloWorld', function () {
-    return view('HelloWorld');
+    return 'Hello Laravel';
+});
+
+Route::get('/user/{name?}', function ($name = null) {
+    if ($name) {
+        return 'Your name is ' . $name;
+    } else {
+        return 'No name provided';
+    }
 });
