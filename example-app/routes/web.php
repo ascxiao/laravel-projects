@@ -15,10 +15,14 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function()
+{
+   return View::make('pages.home');
 });
-
+Route::get('/about', function()
+{
+   return View::make('pages.contact');
+});
 
 Route::get('/hello', function () {
     return 'Hello Laravel';
@@ -38,6 +42,10 @@ Route::get('/user/{name?}', function ($name = null) {
     } else {
         return 'No name provided';
     }
+});
+
+Route::get('/about_me', function(){
+    return view('About_me');
 });
 
 // POST Request
