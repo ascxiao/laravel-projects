@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function()
-{
-   return View::make('pages.home');
-});
+{ return View::make('pages.home'); });
 Route::get('/about', function()
 {
    return View::make('pages.contact');
@@ -59,3 +58,5 @@ Route::patch('/modify-user/{id}', [UserController::class, 'modifyUser']);
 
 // DELETE Request
 Route::delete('/delete-user/{id}', [UserController::class, 'deleteUser']);
+
+Route::get('/skills', [PageController::class, 'skills'])->name('skills');

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Home;
+use App\Models\Skill;
+
 
 class PageController extends Controller
 {
@@ -13,7 +14,8 @@ class PageController extends Controller
     // }
 
     public function skills(){
-        return view('pages/skills');
+        $skills = Skill::all();
+        return view('pages/skills', compact('skills'));
     }
 
     public function gallery(){
