@@ -16,12 +16,6 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function()
-{ return View::make('pages.home'); });
-Route::get('/about', function()
-{
-   return View::make('pages.contact');
-});
 
 Route::get('/hello', function () {
     return 'Hello Laravel';
@@ -59,4 +53,9 @@ Route::patch('/modify-user/{id}', [UserController::class, 'modifyUser']);
 // DELETE Request
 Route::delete('/delete-user/{id}', [UserController::class, 'deleteUser']);
 
+//*------------PORTFOLIO ROUTES--------------*//
+
+//Route::get('/', [userController::class, 'index']);
+// Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/skills', [PageController::class, 'skills'])->name('skills');
+Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
